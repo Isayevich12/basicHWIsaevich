@@ -7,7 +7,6 @@ namespace BasicHomeWork1
     {
         static void Main(string[] args)
         {
-
             #region явное преобразование типов 
             Console.WriteLine($"{new string('_', 50)}\nПриммеры явного преобразования");
             #region пример1 c проверкой на переполнение и отловом исключения
