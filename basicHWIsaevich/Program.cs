@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace basicHWIsaevich
+namespace BasicHomeWork1
 {
 
     class Program
@@ -9,6 +9,7 @@ namespace basicHWIsaevich
         {
 
             #region явное преобразование типов 
+            Console.WriteLine($"{new string('_', 50)}\nПриммеры явного преобразования");
             #region пример1 c проверкой на переполнение и отловом исключения
             try
             {
@@ -33,7 +34,16 @@ namespace basicHWIsaevich
             #endregion
             #endregion
 
-            #region неявное преобразование типов
+            Console.WriteLine($"{new string('_',50)}\nПриммеры нявного преобразования");
+          
+            #region неявное преобразование типов 3 примера
+            ulong g = 54u;
+            decimal h = g;
+            double j = g;
+            float k = 345.678f;
+            double l = k;
+            Console.WriteLine($"g={g}\th={h}\tj={j}\tk={k}\tl={l} ");
+
 
 
             #endregion
