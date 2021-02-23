@@ -44,7 +44,7 @@ namespace BasicHomeWork2
             decimal sum = 0;
             decimal monthlyPayment;
 
-            decimal koef = 0.01m + 0.01m / (((decimal)(Math.Pow((1 + 0.01), (double)this.Period)) - 1));
+            decimal koef = 0.01m + ((decimal)Procent/(decimal)12) / (((decimal)(Math.Pow((1 + Procent/12), (double)this.Period)) - 1));
 
             Console.WriteLine("Выплаты по месяцам:");
 
