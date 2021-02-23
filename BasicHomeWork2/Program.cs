@@ -6,7 +6,9 @@ namespace BasicHomeWork2
     {
         static void Main(string[] args)
         {
-            
+            CreditConsultant creditCansultant = new CreditConsultant();
+            creditCansultant.CalculateCredit();
+
         }
     }
 }
