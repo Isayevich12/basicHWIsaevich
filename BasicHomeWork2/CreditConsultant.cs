@@ -15,7 +15,7 @@ namespace BasicHomeWork2
     {
         private CreditCalculator CreditCalculator { get; set; }
 
-        private event Action BeginCalculate;
+        private event Action BeginCalculateEvent;
 
         public CreditConsultant()
         {
@@ -47,12 +47,12 @@ namespace BasicHomeWork2
 
                 bool type = int.TryParse(Console.ReadLine(), out int typeCred);              
 
-                BeginCalculate += (TypePayment)typeCred == TypePayment.AnnuityPayments ? del1 : (TypePayment)typeCred == TypePayment.DifferentiatedPayment ? del2 : del3;
+                BeginCalculateEvent += (TypePayment)typeCred == TypePayment.AnnuityPayments ? del1 : (TypePayment)typeCred == TypePayment.DifferentiatedPayment ? del2 : del3;
 
                 // Это то же самое, но вообще не читаемо как по мне
                 //BeginCalculate += (TypePayment)typeCred == TypePayment.AnnuityPayments ? new Action(this.CreditCalculator.AnnuityPayments) : (TypePayment)typeCred == TypePayment.DifferentiatedPayment ? new Action(this.CreditCalculator.DifferentiatedPayment) : (delegate() { Console.WriteLine("Нет такого кредита!!!"); });
 
-                BeginCalculate.Invoke();
+                BeginCalculateEvent.Invoke();
             }
             catch (Exception ex)
             {
