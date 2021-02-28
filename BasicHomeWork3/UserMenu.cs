@@ -6,7 +6,7 @@ namespace BasicHomeWork3
 {
     class UserMenu
     {
-        public static void CreateMenu()
+        public static void CreateMenu() 
         {
             (new UserMenu()).Run();
 
