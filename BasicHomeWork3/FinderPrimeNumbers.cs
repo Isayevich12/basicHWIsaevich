@@ -7,7 +7,7 @@ namespace BasicHomeWork3
     class FinderPrimeNumbers
     {
         // эта пергрузка не используется
-        public static string GetPrimeNumbersInRange(int rangeBorderMax)// для нахождения простых чисел в диапазоне от 0 до rangeBorderMax
+        public static string GetPrimeNumbersInRange(int rangeBorderMax)//для нахождения простых чисел в диапазоне от 0 до rangeBorderMax
         {
             string sequenseOfPrimeNubers = rangeBorderMax >= 2 ? "2 " : " В данном диапазоне нет простых чисел";
 
