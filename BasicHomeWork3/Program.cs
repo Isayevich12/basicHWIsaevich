@@ -9,7 +9,7 @@ namespace BasicHomeWork3
     {
         static void Main(string[] args)
         {
-            UserMenu.CreateMenu();
+            UserMenu.CreateMenu();// запуск UI
         }
     }
 }
