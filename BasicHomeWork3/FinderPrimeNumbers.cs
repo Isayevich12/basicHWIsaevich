@@ -9,33 +9,8 @@ namespace BasicHomeWork3
         // эта пергрузка не используется
         public static string GetPrimeNumbersInRange(int rangeBorderMax)//для нахождения простых чисел в диапазоне от 0 до rangeBorderMax
         {
-            string sequenseOfPrimeNubers = rangeBorderMax >= 2 ? "2 " : " В данном диапазоне нет простых чисел";
-
-            int numberForChecking = 0;
-
-            while (numberForChecking <= rangeBorderMax)
-            {
-                string buffer = string.Empty;
-
-                for (int i = 2; i < numberForChecking; i++)
-                {
-                    if (numberForChecking % i != 0)
-                    {
-                        buffer = numberForChecking.ToString();
-                        continue;
-                    }
-                    else
-                    {
-                        buffer = string.Empty;
-                        break;
-                    }
-                }
-
-                sequenseOfPrimeNubers += buffer != string.Empty ? buffer + " " : string.Empty;
-
-                numberForChecking++;
-            }
-            return sequenseOfPrimeNubers;
+            
+            return GetPrimeNumbersInRange(0, rangeBorderMax);
         }
 
         public static string GetPrimeNumbersInRange(int rangeBorderMin, int rangeBorderMax)// для нахождения простых чисел в диапазоне от rangeBorderMin до rangeBorderMax
