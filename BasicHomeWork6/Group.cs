@@ -12,7 +12,7 @@ namespace BasicHomeWork6
 
     delegate Student StudentTransferHandler(string secondName);   
 
-    class Group 
+    class Group : ICommunicateStudentWithGroup
     {
         public string NumberOfGroup { get; }
 
@@ -59,7 +59,10 @@ namespace BasicHomeWork6
             {
                 this.ListOfStudent.Add(student);
 
-                student.AddToGroup(this);
+                
+                student.CommunicateStudentWithGroup = this;
+                student.AddToGroup();
+
 
                 student.StudentTransferHandler += TransferToAnotheGroup;
             }
@@ -80,7 +83,12 @@ namespace BasicHomeWork6
 
             }
 
-            ListOfStudent.Remove(selectedStudent);
+            if (selectedStudent != null)
+            {
+                selectedStudent.CommunicateStudentWithGroup = null;
+                ListOfStudent.Remove(selectedStudent);
+            }         
+            
 
             return selectedStudent;
         }

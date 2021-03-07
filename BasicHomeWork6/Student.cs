@@ -13,6 +13,8 @@ namespace BasicHomeWork6
         public event StudentTransferHandler StudentTransferHandler;
         public string CurrentGroup { get; set; }
 
+        public ICommunicateStudentWithGroup CommunicateStudentWithGroup { get; set; }
+
        // private ICommunicateStudentWithGroup Group { get; set; }
 
         public Student(string firstName, string secondName)
@@ -63,9 +65,9 @@ namespace BasicHomeWork6
             return this;
         }
 
-        public void AddToGroup(Group group)
+        public void AddToGroup()
         {
-            this.CurrentGroup = group.NumberOfGroup;
+            this.CurrentGroup = CommunicateStudentWithGroup.NumberOfGroup;
                     
 
         }
@@ -75,6 +77,8 @@ namespace BasicHomeWork6
         {
             this.StudentTransferHandler?.Invoke(this.SecodName);
             this.CurrentGroup = "Не состоит ни в какой группе";
+            this.CommunicateStudentWithGroup = null;
+
 
             return this;
         }

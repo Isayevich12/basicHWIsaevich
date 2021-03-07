@@ -6,8 +6,8 @@ namespace BasicHomeWork6
 {
     interface ICommunicateStudentWithGroup
     {
-        //string NumberOfGroup { get; }
+        string NumberOfGroup { get; }
 
-        event StudentTransferHandler StudentTransferHandler;
+       // event StudentTransferHandler StudentTransferHandler;
     }
 }
