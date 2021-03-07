@@ -76,8 +76,8 @@ namespace BasicHomeWork6
         public  Student LeaveCurrentGroup()
         {
             this.StudentTransferHandler?.Invoke(this.SecodName);
-            //this.CurrentGroup = "Не состоит ни в какой группе";
-            //this.CommunicateStudentWithGroup = null;
+            this.CurrentGroup = "Не состоит ни в какой группе";
+            this.CommunicateStudentWithGroup = null;
 
 
             return this;

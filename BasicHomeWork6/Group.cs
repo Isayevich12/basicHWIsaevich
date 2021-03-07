@@ -85,8 +85,8 @@ namespace BasicHomeWork6
 
             if (selectedStudent != null)
             {
-                selectedStudent.CommunicateStudentWithGroup = null;
-                selectedStudent.CurrentGroup = "Не состоит ни в какой группе";
+                //selectedStudent.CommunicateStudentWithGroup = null;
+                //selectedStudent.CurrentGroup = "Не состоит ни в какой группе";
                 ListOfStudent.Remove(selectedStudent);
             }         
             
