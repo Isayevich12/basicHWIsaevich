@@ -57,7 +57,7 @@ namespace BasicHomeWork6
             Console.WriteLine(new string('_', 50));
             Console.WriteLine(group1.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
             Console.WriteLine(new string('_', 50));
-            //Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
+            Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AllMark));
 
         }
 

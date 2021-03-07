@@ -66,20 +66,13 @@ namespace BasicHomeWork6
         public void AddToGroup(Group group)
         {
             this.CurrentGroup = group.NumberOfGroup;
-            //this.Group = group;
-
-            
+                    
 
         }
 
-        Student fff(string secondName)
-        {
-            return this;
-        }
 
         public  Student LeaveCurrentGroup()
         {
-            //this.Group.StudentTransferHandler += fff;
             this.StudentTransferHandler.Invoke(this.SecodName);
             this.CurrentGroup = "Не состоит ни в какой группе";
 
