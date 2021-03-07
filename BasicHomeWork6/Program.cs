@@ -59,6 +59,8 @@ namespace BasicHomeWork6
             Console.WriteLine(new string('_', 50));
             Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AllMark));
 
+            Student vasia = new Student("vasil", "vasilev");
+            vasia.LeaveCurrentGroup();
         }
 
 
