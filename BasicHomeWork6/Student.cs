@@ -5,14 +5,15 @@ using System.Text;
 
 namespace BasicHomeWork6
 {
-    class Student
+    class Student 
     {
         public string FirstName { get; }
         public string SecodName { get; }
         public int?[] MarksOfStudent { get; set; } = new int?[5];// чтоб не заморачиваться делаю что есть всего 5 оценок (5 предметов)
+        public event StudentTransferHandler StudentTransferHandler;
+        public string CurrentGroup { get; set; }
 
-        public string CurrentGroup { get;  set; }
-       
+       // private ICommunicateStudentWithGroup Group { get; set; }
 
         public Student(string firstName, string secondName)
         {
@@ -34,7 +35,7 @@ namespace BasicHomeWork6
                 {
                     sumOfMarks += item;
 
-                    countOfMarks++;                 
+                    countOfMarks++;
                 }
             }
 
@@ -49,7 +50,7 @@ namespace BasicHomeWork6
 
             foreach (var item in this.MarksOfStudent)
             {
-                allMarks += item != null ? $"{item}\t"  : $"Нет оценки\t";
+                allMarks += item != null ? $"{item}\t" : $"Нет оценки\t";
             }
 
 
@@ -62,9 +63,27 @@ namespace BasicHomeWork6
             return this;
         }
 
-        public void AddToGrop(Group group )
+        public void AddToGroup(Group group)
         {
             this.CurrentGroup = group.NumberOfGroup;
+            //this.Group = group;
+
+            
+
+        }
+
+        Student fff(string secondName)
+        {
+            return this;
+        }
+
+        public  Student LeaveCurrentGroup()
+        {
+            //this.Group.StudentTransferHandler += fff;
+            this.StudentTransferHandler.Invoke(this.SecodName);
+            this.CurrentGroup = "Не состоит ни в какой группе";
+
+            return this;
         }
 
 

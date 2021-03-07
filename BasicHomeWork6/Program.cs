@@ -38,6 +38,27 @@ namespace BasicHomeWork6
             Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
 
             Console.WriteLine(dima.CurrentGroup);
+
+            Console.WriteLine(new string('_', 50));
+
+            //dima.LeaveCurrentGroup();
+
+            
+            //group2.AddStudentInGroup(dima.LeaveCurrentGroup());
+
+            Console.WriteLine(group1.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
+            Console.WriteLine(new string('_', 50));
+            Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
+
+            // Console.WriteLine(dima.CurrentGroup);
+
+            group2.AddStudentInGroup(dima.LeaveCurrentGroup());
+            Console.WriteLine(new string('_', 50));
+            Console.WriteLine(new string('_', 50));
+            Console.WriteLine(group1.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
+            Console.WriteLine(new string('_', 50));
+            //Console.WriteLine(group2.ShowAverageMarksOrAllMarksAllStudent(TypeOfReport.AverageMark));
+
         }
 
 

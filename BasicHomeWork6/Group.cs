@@ -10,18 +10,25 @@ namespace BasicHomeWork6
         AllMark,
     }
 
+    delegate Student StudentTransferHandler(string secondName);   
 
-    class Group
+    class Group 
     {
         public string NumberOfGroup { get; }
 
         private List<Student> ListOfStudent { get; set; }
+
+        //public event StudentTransferHandler StudentTransferHandler;
+
+
 
         public Group(string nuberOfGroup)
         {
             this.NumberOfGroup = nuberOfGroup;
 
             this.ListOfStudent = new List<Student>();
+
+            //this.StudentTransferHandler += this.TransferToAnotheGroup;
         }
 
         public string ShowAverageMarksOrAllMarksAllStudent(TypeOfReport typeOfReport)
@@ -52,10 +59,13 @@ namespace BasicHomeWork6
             {
                 this.ListOfStudent.Add(student);
 
-                student.AddToGrop(this);
-            }
+                student.AddToGroup(this);
 
+                student.StudentTransferHandler += TransferToAnotheGroup;
+            }
+         
         }
+
 
         public Student TransferToAnotheGroup(string secondName)
         {
