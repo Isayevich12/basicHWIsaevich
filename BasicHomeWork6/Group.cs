@@ -4,34 +4,29 @@ using System.Text;
 
 namespace BasicHomeWork6
 {
-    enum TypeOfReport
+    enum TypeOfReport// для выбора в методе показать все оценки либо средний балл
     {
         AverageMark,
         AllMark,
     }
+  
 
-    delegate Student StudentTransferHandler(string secondName);   
-
-    class Group 
+    class Group : ICommunicateStudentWithGroup
     {
         public string NumberOfGroup { get; }
 
-        private List<Student> ListOfStudent { get; set; }
-
-        //public event StudentTransferHandler StudentTransferHandler;
+        private List<Student> ListOfStudent { get; set; }// список тудентов. list заюзал для динамической длинны списка и удобного добавления и удаления. (чтоб не городить велосипед с "динамическим" int[])))
 
 
-
-        public Group(string nuberOfGroup)
+        public Group(string nuberOfGroup)// при создании группа будет иметь лишь название и пустой список студентов
         {
             this.NumberOfGroup = nuberOfGroup;
 
             this.ListOfStudent = new List<Student>();
 
-            //this.StudentTransferHandler += this.TransferToAnotheGroup;
         }
 
-        public string ShowAverageMarksOrAllMarksAllStudent(TypeOfReport typeOfReport)
+        public string ShowAverageMarksOrAllMarksAllStudent(TypeOfReport typeOfReport)// показать оценки либо средний бал(в зависимости от параметра метоа) для всех студентов  в группе
         {
             string listAverageMarks = string.Empty;
 
@@ -53,13 +48,16 @@ namespace BasicHomeWork6
             return listAverageMarks;
         }
 
-        public void AddStudentInGroup(Student student)
+        public void AddStudentInGroup(Student student)//метод для добавления студентов в группу
         {
             if (student != null)
             {
                 this.ListOfStudent.Add(student);
 
-                student.AddToGroup(this);
+                
+                student.CommunicateStudentWithGroup = this;
+                student.AddToGroup();
+
 
                 student.StudentTransferHandler += TransferToAnotheGroup;
             }
@@ -67,7 +65,7 @@ namespace BasicHomeWork6
         }
 
 
-        public Student TransferToAnotheGroup(string secondName)
+        public Student TransferToAnotheGroup(string secondName)// для удаления студета из группы(можно и для переводо в другую группу)
         {
             Student selectedStudent = null;
 
@@ -80,9 +78,24 @@ namespace BasicHomeWork6
 
             }
 
-            ListOfStudent.Remove(selectedStudent);
-
+            if (selectedStudent != null)
+            {
+                ListOfStudent.Remove(selectedStudent);
+            }         
+            
             return selectedStudent;
+        }
+
+        public void GiveMarksToAllStudent()
+        {
+
+            foreach (var item in ListOfStudent)
+            {
+                for (int i = 0; i < item.MarksOfStudent.Length; i++)
+                {
+                    item.MarksOfStudent[i] = new Random().Next(1, 10);
+                }
+            }
         }
 
     }

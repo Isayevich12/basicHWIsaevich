@@ -5,15 +5,18 @@ using System.Text;
 
 namespace BasicHomeWork6
 {
-    class Student 
+    delegate Student StudentTransferHandler(string secondName);
+
+    abstract class Student //чтоб нельзя было "делать" студентов с нуля (только upcast например person ) и сокрыть все не нужное состояние и поведение person в группе
     {
         public string FirstName { get; }
         public string SecodName { get; }
-        public int?[] MarksOfStudent { get; set; } = new int?[5];// чтоб не заморачиваться делаю что есть всего 5 оценок (5 предметов)
-        public event StudentTransferHandler StudentTransferHandler;
-        public string CurrentGroup { get; set; }
+        public int?[] MarksOfStudent { get; set; } = new int?[5];// чтоб не заморачиваться делаю что есть всего 5 оценок (5 предметов), использовал nulable type чтоб можно было показать отсутствие оценок
+        public event StudentTransferHandler StudentTransferHandler;// событие для выхода студента из группы по своей инициативе
+        public string CurrentGroup { get; private set; }
 
-       // private ICommunicateStudentWithGroup Group { get; set; }
+        public ICommunicateStudentWithGroup CommunicateStudentWithGroup { get;  set; }// для того чтобы студент знал номер группы в которой состоит и больше ничего не знал о группе
+    
 
         public Student(string firstName, string secondName)
         {
@@ -24,7 +27,7 @@ namespace BasicHomeWork6
             this.CurrentGroup = "Не состоит ни в какой группе";
         }
 
-        public float? ShowAverageMark()
+        public float? ShowAverageMark()// средний бал студента
         {
             int? sumOfMarks = 0;
             int countOfMarks = 0;
@@ -44,7 +47,7 @@ namespace BasicHomeWork6
             return averageMark;
         }
 
-        public string ShowAllMarks()
+        public string ShowAllMarks()// показать все оценки
         {
             string allMarks = string.Empty;
 
@@ -55,26 +58,22 @@ namespace BasicHomeWork6
 
 
             return allMarks;
-        }
+        }     
 
-        public Student TrasferYourselfToAtherGroup()
+        public void AddToGroup()// этот метод вызывается в Group когда группа доавляет студента
         {
-
-            return this;
-        }
-
-        public void AddToGroup(Group group)
-        {
-            this.CurrentGroup = group.NumberOfGroup;
+            this.CurrentGroup = CommunicateStudentWithGroup.NumberOfGroup;
                     
 
         }
 
 
-        public  Student LeaveCurrentGroup()
+        public  Student LeaveCurrentGroup()//метод для самостоятелного выхода из группы (студент сам покидает группу)
         {
-            this.StudentTransferHandler?.Invoke(this.SecodName);
+            this.StudentTransferHandler?.Invoke(this.SecodName);// удаление студента из группы
             this.CurrentGroup = "Не состоит ни в какой группе";
+            this.CommunicateStudentWithGroup = null;
+
 
             return this;
         }
