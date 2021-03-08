@@ -6,7 +6,9 @@ namespace BasicHomeWork6_1
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            string a = "fgdgf";
+           // a.Contains("f");
+            Console.WriteLine(a.Contains("df")); 
         }
     }
 }
