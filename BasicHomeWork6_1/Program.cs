@@ -6,9 +6,7 @@ namespace BasicHomeWork6_1
     {
         static void Main(string[] args)
         {
-            string a = "fgdgf";
-           // a.Contains("f");
-            Console.WriteLine(a.Contains("df"));  // просто пример использования класса MyString / Не стал заграмождать метод Console.Writeline() всякими текстовыми описаниями
+            // просто пример использования класса MyString / Не стал заграмождать метод Console.Writeline() всякими текстовыми описаниями
 
             MyString str1 = new MyString("hello");// параметр конструктора string
             MyString str2 = new MyString('w', 'o', 'r', 'l', 'd');// параметр конструктора char[]
