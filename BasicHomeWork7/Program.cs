@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace BasicHomeWork7
@@ -10,7 +11,7 @@ namespace BasicHomeWork7
         /// </summary>
         static void Task1()
         {
-            int[] myList = { 23, 7, 324, 46 };// не заморачивался вводом массива
+            int[] myList = { 23, 7, 324, 46 };// не заморачивался вводом массива 
 
             var newList = myList.Select(n => n % 10).ToList();
 
@@ -25,7 +26,7 @@ namespace BasicHomeWork7
         /// </summary>
         static void Task2()
         {
-            int[] myList = { 23, 7, 324, 46, 23, 23, 7, 46, 46, 46 };// не заморачивался вводом массива
+            List<int> myList = new List<int> { 23, 7, 324, 46, 23, 23, 7, 46, 46, 46 };// не заморачивался вводом массива
 
             var res = myList.GroupBy(n => n).Select(n => $"{n.First()} - {n.Count()}шт."); 
 
