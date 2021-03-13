@@ -35,14 +35,32 @@ namespace BasicHomeWork7
             }
         }
 
+        /// <summary>
+        /// Задача 2 второй способ (анонимный класс)
+        /// </summary>
+        static void Task2_ver2()
+        {
+            int[] myList = { 23, 7, 324, 46, 23, 23, 7, 46, 46, 46 };
+
+            var res = myList.GroupBy(n => n).Select(n => new { amount = n.Count(), number = n.First() }).ToList();
+
+            foreach (var item in res)
+            {
+                Console.WriteLine($"{item.number} - {item.amount}шт.");
+            }
+        }
+
         static void Main(string[] args)
         {
             Task1();// задача 1
 
-            Console.WriteLine($"\n{new string('_', 50)}");
+            Console.WriteLine($"\n{new string('_', 50)}");// разделитель задач
 
             Task2();// задача 2
-            
+
+            Console.WriteLine($"\n{new string('_', 50)}");// разделитель задач
+
+            Task2_ver2();
         }
     }
 }
