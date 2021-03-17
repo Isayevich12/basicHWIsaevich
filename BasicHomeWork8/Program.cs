@@ -10,13 +10,14 @@ namespace BasicHomeWork8
 
             ManagerOfCofee managerOfCofee = new ManagerOfCofee();
 
+            // отправляем задачи студентов
             Sender.SendSolution(new Student("Ivan", "Ivanov"), managerOfCofee);
             Sender.SendSolution(new Student("Petr", "Petrov"), managerOfCofee);
             Sender.SendSolution(new Student("Dzmitry", "Isayevich"), managerOfCofee);
 
-            Console.WriteLine(managerOfCofee.ReciveReport);
-            managerOfCofee.GiveOutCoffee(CoffeeDispensingMode.Queue);
-            Console.WriteLine(managerOfCofee.GiveOutCoffeeReport);
+            Console.WriteLine(managerOfCofee.ReciveReport);// смотрим отчет по приходу писем 
+            managerOfCofee.GiveOutCoffee(CoffeeDispensingMode.Queue);// выдаем кофе + формируем отчет выдачи
+            Console.WriteLine(managerOfCofee.GiveOutCoffeeReport);//смотрим отчет по выдаче кофе 
             Console.WriteLine("--------------------");
 
             Sender.SendSolution(new Student("Ivan1", "Iva"), managerOfCofee);
