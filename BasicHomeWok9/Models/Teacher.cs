@@ -15,15 +15,11 @@ namespace BasicHomeWok9.Models
         public override string GetInfo()
         {
             string info = $"Учитель {base.Name} {base.Surname}\n\tГруппа: {this.NumberOfGroup}\n\tКатегория: {this.Category}\n{new string('-', 50)}\n";
-
-           
-
+          
             info += $"{new string('*', 50)}\n";
 
             return info;
         }
-
-
     }
 
 
