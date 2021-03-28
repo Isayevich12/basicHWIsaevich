@@ -6,9 +6,14 @@ using System.Threading.Tasks;
 
 namespace BasicHomeWok9.Models
 {
-    class Person
+    class Person : IInfoGetter
     {
         public string Name { get; set; }
         public string Surname { get; set; }
+
+        public virtual string GetInfo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

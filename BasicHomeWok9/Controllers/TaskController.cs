@@ -454,9 +454,56 @@ namespace BasicHomeWok9.Controllers
             {
                 result = "Группы отсутствуют!!";
             }
-
             return result;
         }
+
+        //////////////////////////////////////
+        ///дз№10
+        public string ShowAllInfoAboutStudents()
+        {
+            string report = string.Empty;
+
+            foreach (var student in this.RepositoryUnit.Students)
+            {
+                //report += student.GetInfo();   1 -ый способ
+                report += Informer.GetInfoAbouCurrentPerson(student);// 2 - ой способ
+            }
+
+            return report;
+        }
+        public string ShowAllInfoAboutTeachers()
+        {
+            string report = string.Empty;
+
+            foreach (var teacher in this.RepositoryUnit.Teachers)
+            {
+                report += teacher.GetInfo(); // 1 -ый способ
+               // report += Informer.GetInfoAbouCurrentPerson(teacher);// 2 - ой способ
+            }
+            return report;
+        }
+
+        public string ShowInformationByName(string fullName)
+        {
+            IInfoGetter queryPerson = RepositoryUnit.Teachers.FirstOrDefault(n => n.Name + n.Surname == fullName);
+
+            if (queryPerson  != null)
+            {
+                return Informer.GetInfoAbouCurrentPerson(queryPerson);
+            }
+            else 
+            {
+                queryPerson = RepositoryUnit.Students.FirstOrDefault(n => n.Name + n.Surname == fullName);
+                if (queryPerson != null)
+                {
+                    return Informer.GetInfoAbouCurrentPerson(queryPerson);
+                }
+
+                return $"{fullName} отсутствует!!";
+            }
+   
+        }
+
 
 
 
