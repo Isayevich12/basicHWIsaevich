@@ -39,5 +39,19 @@ namespace BasicHomeWok9.Models
             }
         }
 
+        public override string GetInfo()
+        {
+            string info = $"Студет {base.Name} {base.Surname}\n\tГруппа: {this.GroupOfStudent}\n{new string('-',50)}\n";
+
+            foreach (var mark in this.StudentMarks)
+            {
+                info += $"{mark.Key} -> {mark.Value}\n";
+            }
+
+            info += $"{new string('*',50)}\n";
+
+            return info;
+        }
+
     }
 }

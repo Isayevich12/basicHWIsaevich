@@ -18,7 +18,8 @@ namespace ConsoleApp1.Views
             {
                 Console.WriteLine($"\n1 - Просмотреть имеющиеся группы с учениками\n2 - Добавить группу\n3 - Удалить группу\n4 - Войти в группу\n" +
                     $"5 - Поставить всем студентам оценки\n6 - Показать всех учителей\n7 - Создать учителя + добавить его в группу без учителя\n" +
-                    $"8 - рейтинг всех студентов по среднему баллу\n11 -Выйти из программы");
+                    $"8 - рейтинг всех студентов по среднему баллу\n9 - полный отчет по ученикам\n" +
+                    $"10 - полный отчет по учителям\n11 - Инфо по имени фамилии\n22 -Выйти из программы");
 
                 int.TryParse(Console.ReadLine(), out int modeOfMenue);
 
@@ -87,8 +88,33 @@ namespace ConsoleApp1.Views
 
                             break;
                         }
+                    case 9:
+                        {
+                            Console.Clear();
+                            Console.WriteLine(controller.ShowAllInfoAboutStudents());
 
+                            break;
+                        }
+                    case 10:
+                        {
+                            Console.Clear();
+                            Console.WriteLine(controller.ShowAllInfoAboutTeachers());
+
+                            break;
+                        }
                     case 11:
+                        {
+                            Console.Clear();
+                            Console.WriteLine("Введите имя ");
+                            string name = Console.ReadLine();
+                            Console.WriteLine("Введите фамилию ");
+                            string surname = Console.ReadLine();
+                            Console.WriteLine(controller.ShowInformationByName(name + surname));
+                            break;
+                        }
+
+
+                    case 22:
                         {
                             return;
                         }
